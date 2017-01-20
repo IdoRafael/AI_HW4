@@ -1,8 +1,10 @@
-from cross_validation import split_crosscheck_groups
+import cross_validation
+import classifier
 from hw3_utils import create_dataset
-from collections import Counter
+from random import shuffle
 
-def compare(s, t):
+
+def compare_lists_without_order(s, t):
     t = list(t)   # make a mutable copy
     try:
         for elem in s:
@@ -11,10 +13,6 @@ def compare(s, t):
         return False
     return not t
 
-if __name__ == '__main__':
-    d = create_dataset()
-    d1 = create_dataset('ecg_fold_1.data')
-    d2 = create_dataset('ecg_fold_2.data')
-    d3 = d1 + d2
 
-    print(compare(d,[1,2]))
+if __name__ == '__main__':
+

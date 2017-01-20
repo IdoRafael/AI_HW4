@@ -25,3 +25,9 @@ class knn_factory(abstract_classifier_factory):
 
     def train(self, data, labels):
         return knn_classifier(self.k, data, labels)
+
+    # helper function to seperate data and labels
+    def train_from_dataset(self, dataset):
+        data = [x[:-1] for x in dataset]
+        lables = [x[-1] for x in dataset]
+        return self.train(data, lables)
