@@ -18,6 +18,5 @@ def compare_lists_without_order(s, t):
 
 
 if __name__ == '__main__':
-    x = majority_classifier([0,0,0,1])
-    print(x.classify([1, 2, 3]))
-
+    a = [1,2,3]
+    print(a[:14])
