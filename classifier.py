@@ -94,10 +94,10 @@ class idtree_factory(abstract_classifier_factory):
 
     def _selectFeature(self, Features, data, labels):
         group = [data[i] + [labels[i]] for i in range(0, len(data))]
-        best_IG = -1
+        best_IG = None
         for f in Features:
             IG, v = information_gain_for_continuous(group, f)
-            if IG > best_IG:
+            if best_IG is None or IG > best_IG:
                 best_IG = IG
                 best_v = v
                 best_f = f
