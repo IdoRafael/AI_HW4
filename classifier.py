@@ -62,12 +62,12 @@ class idtree_factory(abstract_classifier_factory):
         return self.train(data, lables)
 
     def _train_aux(self, Features, default, data, labels, leaf_classifier_factory, classifier):
-        if len(labels) == 0:
+        if labels is None or data is None or len(labels) == 0 or len(data) == 0:
             return classifier(None, None, None, None, default)
 
         c = leaf_classifier_factory.train(data, labels)
 
-        if all(x == labels[0] for x in labels) or len(Features) == 0 or len(labels) <= self.L:
+        if all(x == labels[0] for x in labels) or Features is None or len(Features) == 0 or len(labels) <= self.L:
             return classifier(None, None, None, None, c)
 
         IG, f, v = self._selectFeature(Features, data, labels)
