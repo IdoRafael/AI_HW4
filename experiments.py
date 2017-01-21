@@ -30,7 +30,7 @@ def run_experiment12():
 
 
 if __name__ == '__main__':
-    # split_crosscheck_groups(create_dataset(), 2)
+    split_crosscheck_groups(create_dataset(), 2)
     run_experiment6()
     run_experiment9()
     run_experiment12()
